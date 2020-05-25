@@ -1,0 +1,23 @@
+.searchbar {
+    margin-top: 2rem;
+    .searchfield {
+        width: 40rem;
+        height: 1rem;
+        border: none;
+        padding: 0.625rem;
+        border-radius: 3px;
+        background: #F2F2F2;
+        box-shadow: inset 0px 6px 10px rgba(0, 0, 0, 0.05);
+        border-radius: 5px;
+    }
+    .button {
+        padding: 6px 32px;
+        height: calc(1rem + 2* 0.625rem);
+        border: none;
+        margin-left: 1rem;
+        color: white;
+        background: orangered;
+        box-shadow: 0px 6px 10px rgba(255, 103, 0, 0.3);
+        border-radius: 3px;
+    }
+}
