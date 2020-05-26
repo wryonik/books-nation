@@ -11,7 +11,8 @@ class LandingPage extends Component {
             books: [],
             searchField: '',
             sort: 'relevance',
-            isLoading: false
+            isLoading: false,
+            filter: ''
         }
     }
 
@@ -41,10 +42,14 @@ class LandingPage extends Component {
         })
     }
 
+    handleFilter = (e) => {
+        this.setState({handleFilter: e.target.value});
+    }
+
     render() {
         return(
             <div className="landing">
-                <Searchbar searchBook={this.searchBook} handleSearch={this.handleSearch} handleSort={this.handleSort} sort={this.state.sort} />
+                <Searchbar searchBook={this.searchBook} handleSearch={this.handleSearch} handleSort={this.handleSort} sort={this.state.sort} handleFilter={this.handleFilter} />
                 {this.state.isLoading ? <LoadingSpinner /> : <BooksList books={this.state.books} />}
             </div>
         );

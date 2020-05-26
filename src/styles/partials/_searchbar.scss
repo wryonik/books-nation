@@ -20,24 +20,33 @@
         box-shadow: 0px 6px 10px rgba(255, 103, 0, 0.3);
         border-radius: 3px;
     }
-    .sortBy {
-        margin-left: auto;
+    .properties {
+        display: flex;
+        flex-direction: row;
         margin-top: 3rem;
-        width: max-content;
-        .sortButton {
-            margin-right: auto;
-            background: white;
+        height: 1.4rem;
+        .filterBy {
+            // background: white;
             border: none;
-            border: 1.5px solid gray;
-            height: 1.4rem;
-            padding: 0px 20px;
-            vertical-align: middle;
-            color: gray;
         }
-        .active {
-            background: grey;
-            border: none;
-            color: white;
+        .sortBy {
+            margin-left: auto;
+            width: max-content;
+            .sortButton {
+                background: white;
+                border: none;
+                margin-right: auto;
+                border: 1.5px solid gray;
+                height: 1.4rem;
+                padding: 0px 20px;
+                vertical-align: middle;
+                color: gray;
+            }
+            .active {
+                background: grey;
+                border: none;
+                color: white;
+            }
         }
     }
 }
