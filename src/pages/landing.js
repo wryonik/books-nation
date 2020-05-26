@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Searchbar from './../components/searchbar';
-import { getBookByName, getBookByNameOrderBy } from '../api/booksApi';
+import { getBooks } from '../api/booksApi';
 import BooksList from '../components/booksList';
 import LoadingSpinner from '../components/loadingSpinner';
 
@@ -34,7 +34,7 @@ class LandingPage extends Component {
             await this.setState({sort: e.target.value});
         }
         this.setState({ isLoading:true }, () => {
-            getBookByNameOrderBy(this.state.searchField, this.state.sort).then((data) => {
+            getBooks(this.state.searchField, this.state.sort).then((data) => {
                 console.log(this.state.isLoading);
                 this.setState({ isLoading:false, books: [...data.items] })
                 console.log(this.state.isLoading);

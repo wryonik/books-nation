@@ -1,18 +1,15 @@
 import { axiosInstance } from './axiosInstance';
 
-function getBookByName(name) {
-    return axiosInstance.get(`?q=${name}`)
-    .then((response) => {
-        const res = JSON.parse(response.request.response);
-        return res;
+function getBooks(name, orderValue, filter, languageRestriction, startIndex) {
+    return axiosInstance.get('', {
+        params: {
+            q: name,
+            orderBy: orderValue,
+            filter: filter,
+            langRestrict: languageRestriction,
+            startIndex: startIndex
+        }
     })
-    .catch((error) => {
-      return Promise.reject(error);
-    });
-}
-
-function getBookByNameOrderBy(name, orderValue) {
-    return axiosInstance.get(`?q=${name}&orderBy=${orderValue}`)
     .then((response) => {
         const res = JSON.parse(response.request.response);
         return res;
@@ -23,6 +20,5 @@ function getBookByNameOrderBy(name, orderValue) {
 }
 
 export {
-    getBookByName,
-    getBookByNameOrderBy
+    getBooks,
 }
