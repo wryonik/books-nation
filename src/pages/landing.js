@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import Searchbar from './../components/searchbar';
 import { getBookByName } from '../api/booksApi';
+import BooksList from '../components/booksList';
 
 class LandingPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             books: [],
-            searchField: ''
+            searchField: '',
         }
     }
 
     searchBook = (e) => {
         e.preventDefault();
-        getBookByName(this.searchField).then((res, err) => {
-            this.setState({ books: [...res.items]})
+        getBookByName(this.state.searchField).then((data) => {
+            console.log(data.items)
+            this.setState({ books: [...data.items] })
         })
     }
 
@@ -26,6 +28,7 @@ class LandingPage extends Component {
         return(
             <div>
                 <Searchbar searchBook={this.searchBook} handleSearch={this.handleSearch} />
+                <BooksList books={this.state.books} />
             </div>
         );
     }
