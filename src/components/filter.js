@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Filter = (props) => {
-    console.log(props)
     return(
         <div className="filter">
             <select className="filterBy categoryDropdown" defaultValue="none" onChange={props.handleFilter} >

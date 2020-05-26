@@ -1,7 +1,6 @@
 import React from 'react';
 
 const BookCard = (props) => {
-    console.log(props.book.volumeInfo)
     const publishedYear = props.book.volumeInfo.hasOwnProperty('publishedDate') === false ? props.book.volumeInfo['publishedDate'] = "0000" : props.book.volumeInfo.publishedDate.substring(0,4);
     const averageRating = props.book.volumeInfo.hasOwnProperty('averageRating') === false ? props.book.volumeInfo['averageRating'] = "1" : props.book.volumeInfo.averageRating;
 

@@ -45,13 +45,9 @@ class LandingPage extends Component {
     }
     
     handleRequest = () => {
-        console.log("hello")
-        console.log(this)
         this.setState({ isLoading:true }, () => {
             getBooks(this.state.searchField, this.state.sort, this.state.filter, this.state.languageRestriction).then((data) => {
-                console.log(this.state.isLoading);
                 this.setState({ isLoading:false, books: [...data.items] })
-                console.log(this.state.isLoading);
             })
         })
     }

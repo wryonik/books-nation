@@ -5,8 +5,6 @@ const Searchbar = (props) => {
     Searchbar.defaultProps = {
         sort: "relevance"
     }
-    console.log(props)
-
 
     return(
         <div className="searchbar">
