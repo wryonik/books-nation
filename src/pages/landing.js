@@ -12,29 +12,43 @@ class LandingPage extends Component {
             searchField: '',
             sort: 'relevance',
             isLoading: false,
-            filter: ''
+            filter: null,
+            languageRestriction: ''
         }
     }
-
-    // searchBook = (e) => {
-    //     e.preventDefault();
-    //     getBookByName(this.state.searchField).then((data) => {
-    //         console.log(data.items)
-    //         this.setState({ books: [...data.items] })
-    //     })
-    // }
 
     handleSearch = (e) => {
         this.setState({searchField: e.target.value});
     }
 
-    handleSort = async (e) => {
+    handleSort = (e) => {
         e.preventDefault();
         if(e.target.value!==undefined) {
-            await this.setState({sort: e.target.value});
+            this.setState({sort: e.target.value});
         }
+        this.handleRequest()
+    }
+
+    
+    handleFilter = (e) => {
+        if(e.target.value!=="none") {
+            this.setState({ filter: e.target.value });
+        } else {
+            this.setState({ filter: null })
+        }
+        this.handleRequest()
+    }
+
+    handleLanguageRes = (e) => {
+        this.setState({ languageRestriction: e.target.value });
+        this.handleRequest()
+    }
+    
+    handleRequest = () => {
+        console.log("hello")
+        console.log(this)
         this.setState({ isLoading:true }, () => {
-            getBooks(this.state.searchField, this.state.sort).then((data) => {
+            getBooks(this.state.searchField, this.state.sort, this.state.filter, this.state.languageRestriction).then((data) => {
                 console.log(this.state.isLoading);
                 this.setState({ isLoading:false, books: [...data.items] })
                 console.log(this.state.isLoading);
@@ -42,14 +56,10 @@ class LandingPage extends Component {
         })
     }
 
-    handleFilter = (e) => {
-        this.setState({handleFilter: e.target.value});
-    }
-
     render() {
         return(
             <div className="landing">
-                <Searchbar searchBook={this.searchBook} handleSearch={this.handleSearch} handleSort={this.handleSort} sort={this.state.sort} handleFilter={this.handleFilter} />
+                <Searchbar searchBook={this.searchBook} handleSearch={this.handleSearch} handleSort={this.handleSort} sort={this.state.sort} handleFilter={this.handleFilter} handleLanguageRes={this.handleLanguageRes} />
                 {this.state.isLoading ? <LoadingSpinner /> : <BooksList books={this.state.books} />}
             </div>
         );
