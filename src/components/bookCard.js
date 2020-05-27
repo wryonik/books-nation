@@ -4,9 +4,9 @@ const BookCard = (props) => {
     const publishedYear = !props.book.volumeInfo.hasOwnProperty('publishedDate')
                           ? props.book.volumeInfo.publishedDate = "0000"
                           : props.book.volumeInfo.publishedDate.substring(0,4);
-    const averageRating = !props.book.volumeInfo.hasOwnProperty('averageRating') === false
+    const averageRating = !props.book.volumeInfo.hasOwnProperty('averageRating')
                           ? props.book.volumeInfo.averageRating = "1" : props.book.volumeInfo.averageRating;
-    const thumbnail = !props.book.volumeInfo.hasOwnProperty('imageLinks') === false
+    const thumbnail = !props.book.volumeInfo.hasOwnProperty('imageLinks')
                       ? 1 : props.book.volumeInfo.imageLinks.thumbnail;
 
     return(
