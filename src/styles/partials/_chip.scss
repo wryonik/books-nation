@@ -1,0 +1,23 @@
+.chip {
+    height: 24px;
+    width: max-content;
+    padding: 2px 8px;
+    display: flex;
+    flex-direction: row;
+    vertical-align: super;
+    margin-top: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 10px rgba(25, 25, 25, 0.1);
+    margin-right: 5px;
+    .filterName {
+        align-self: center;
+        margin-right: 10px;
+    }
+    .fas {
+        align-self: center;
+        opacity: 0.5;
+        &:hover {
+            opacity: 0.75;
+        }
+    }
+}

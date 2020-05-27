@@ -1,4 +1,8 @@
 .landing {
     width: calc(100vw - 24rem);
     margin-left: 12rem;
+    .chipComponents {
+        display: flex;
+        flex-direction: row;
+    }
 }

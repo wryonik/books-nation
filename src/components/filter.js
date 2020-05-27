@@ -1,18 +1,20 @@
 import React from 'react';
 
 const Filter = (props) => {
+    console.log(props)
+
     return(
         <div className="filter">
-            <select className="filterBy categoryDropdown" defaultValue="none" onChange={props.handleFilter} >
-                <option value="none">None</option>
+            <select className="filterBy categoryDropdown" value={props.filter} onChange={props.handleFilter} >
+                <option value={null}>None</option>
                 <option value="full">Full</option>
                 <option value="partial">Partial</option>
                 <option value="ebooks">eBooks</option>
                 <option value="free-ebooks">Free eBooks</option>
                 <option value="paid-ebooks">Paid eBooks</option>
             </select>
-            <select className="filterBy LanguageDropdown" onChange={props.handleLanguageRes} >
-            <option value={null}>All</option>
+            <select className="filterBy LanguageDropdown" value={props.languageRestriction} onChange={props.handleLanguageRes} >
+                <option value={null}>All</option>
                 <option value="en">English</option>
                 <option value="fr">French</option>
                 <option value="de">German</option>

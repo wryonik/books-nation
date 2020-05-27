@@ -3,6 +3,7 @@ import Searchbar from './../components/searchbar';
 import { getBooks } from '../api/booksApi';
 import BooksList from '../components/booksList';
 import LoadingSpinner from '../components/loadingSpinner';
+import Chip from "../components/chip";
 
 class LandingPage extends Component {
     constructor(props) {
@@ -33,7 +34,9 @@ class LandingPage extends Component {
 
     
     handleFilter = (e) => {
-        if(e.target.value!=="none") {
+        if(e==null) {
+            this.setState({ filter: null })
+        } else if(e.target.value!=="none") {
             this.setState({ filter: e.target.value });
         } else {
             this.setState({ filter: null })
@@ -42,7 +45,11 @@ class LandingPage extends Component {
     }
 
     handleLanguageRes = (e) => {
-        this.setState({ languageRestriction: e.target.value });
+        if(e!==undefined) {
+            this.setState({ languageRestriction: e.target.value });
+        } else {
+            this.setState({ languageRestriction: null })
+        }
         this.handleRequest()
     }
 
@@ -52,17 +59,25 @@ class LandingPage extends Component {
     }
     
     handleRequest = () => {
-        this.setState({ isLoading:true }, () => {
-            getBooks(this.state.searchField, this.state.sort, this.state.filter, this.state.languageRestriction, this.state.startIndex).then((data) => {
-                this.setState({ isLoading:false, books: [...data.items], totalBooks: data.totalItems })
+        if(this.state.searchField!=='') {
+            this.setState({ isLoading:true }, () => {
+                getBooks(this.state.searchField, this.state.sort, this.state.filter, this.state.languageRestriction, this.state.startIndex).then((data) => {
+                    this.setState({ isLoading:false, books: [...data.items], totalBooks: data.totalItems })
+                })
             })
-        })
+        } else {
+            alert("Please input Search Query")
+        }
     }
 
     render() {
         return(
             <div className="landing">
-                <Searchbar searchBook={this.searchBook} handleSearch={this.handleSearch} handleSort={this.handleSort} sort={this.state.sort} handleFilter={this.handleFilter} handleLanguageRes={this.handleLanguageRes} />
+                <Searchbar searchBook={this.searchBook} handleSearch={this.handleSearch} handleSort={this.handleSort} sort={this.state.sort} filter={this.state.filter} languageRestriction={this.state.languageRestriction} handleFilter={this.handleFilter} handleLanguageRes={this.handleLanguageRes} />
+                <div className="chipComponents">
+                    { this.state.filter ? <Chip filter={this.state.filter} handleFilter={this.handleFilter} /> : null }
+                    { this.state.languageRestriction ? <Chip filter={this.state.languageRestriction} handleLanguageRes={this.handleLanguageRes} /> : null }
+                </div>
                 {this.state.isLoading ? <LoadingSpinner /> : <BooksList books={this.state.books} totalBooks={this.state.totalBooks} onPageChange={this.handlePage} />}
             </div>
         );
