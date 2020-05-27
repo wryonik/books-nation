@@ -53,7 +53,7 @@ class Pagination extends Component {
                     {this.state.pageNumbers.map(Number => (
                         <div
                             key={Number}
-                            className={ `pagination-element ${this.state.currentPage === { Number } ? 'active': ''}` }
+                            className={ `pagination-element ${this.state.currentPage ===  Number  ? 'active': ''}` }
                             onClick={ ()=> { this.handlePageChange(Number); } }
                         >
                             { Number }

@@ -22,7 +22,11 @@
                 cursor: pointer;
             }
             &.active {
-                font-weight: bold;
+                width: 2rem;
+                font-weight: 600;
+                color: white;
+                background: orangered;
+                border-radius: 3px;
             }
         }
     }

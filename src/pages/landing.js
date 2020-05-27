@@ -17,7 +17,7 @@ class LandingPage extends Component {
             filter: null,
             languageRestriction: null,
             startIndex: 0,
-            currentPage: 0
+            currentPage: 1
         };
     }
 
