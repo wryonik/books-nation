@@ -19,7 +19,7 @@ class Pagination extends Component {
         } else if( this.state.currentPage>(this.state.totalPages-5)) {
             for (let i = this.state.totalPages-5; i >= this.state.totalPages-8; i--) {
                 this.state.pageNumbers.splice(1,0,i);
-            } 
+            }
         } else {
             for (let i = this.state.currentPage+2; i >= this.state.currentPage-2; i--) {
                 this.state.pageNumbers.splice(1,0,i);
@@ -51,8 +51,10 @@ class Pagination extends Component {
                 <div className="pagination-prev" onClick={this.handlePaginationPrev}>Prev</div>
                 <div className="pagination-list">
                     {this.state.pageNumbers.map(Number => (
-                        <div className={ `pagination-element ${this.state.currentPage === { Number } ? 'active': ''}` }
-                             onClick={ ()=> { this.handlePageChange(Number); } }
+                        <div
+                            key={Number}
+                            className={ `pagination-element ${this.state.currentPage === { Number } ? 'active': ''}` }
+                            onClick={ ()=> { this.handlePageChange(Number); } }
                         >
                             { Number }
                         </div>

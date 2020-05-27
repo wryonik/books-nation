@@ -12,7 +12,11 @@ const Filter = (props) => {
                 <option value="free-ebooks">Free eBooks</option>
                 <option value="paid-ebooks">Paid eBooks</option>
             </select>
-            <select className="filterBy LanguageDropdown" value={props.languageRestriction} onChange={props.handleLanguageRes} >
+            <select
+                className="filterBy LanguageDropdown"
+                value={props.languageRestriction}
+                onChange={props.handleLanguageRes}
+            >
                 <option value={null}>All</option>
                 <option value="en">English</option>
                 <option value="fr">French</option>

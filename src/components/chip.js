@@ -12,7 +12,8 @@ class Header extends Component {
     render() {
         return(
             <div className="chip">
-                <div className="filterName">{this.props.filter}</div> <i className="fas fa-times-circle" value="none" onClick={this.handleRemove} />
+                <div className="filterName">{this.props.filter}</div>
+                <i className="fas fa-times-circle" value="none" onClick={this.handleRemove} />
             </div>
         );
     }
