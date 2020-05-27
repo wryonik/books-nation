@@ -62,7 +62,12 @@ class LandingPage extends Component {
     handleRequest = () => {
         if(this.state.searchField!=='') {
             this.setState({ isLoading:true }, () => {
-                getBooks(this.state.searchField, this.state.sort, this.state.filter, this.state.languageRestriction, this.state.startIndex)
+                getBooks(this.state.searchField,
+                    this.state.sort,
+                    this.state.filter,
+                    this.state.languageRestriction,
+                    this.state.startIndex
+                )
                 .then((data) => {
                     this.setState({ isLoading:false, books: [...data.items], totalBooks: data.totalItems });
                 })

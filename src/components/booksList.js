@@ -9,10 +9,14 @@ class BooksList extends Component {
             <div className="booklistPage">
                 <div className="bookslist">
                     {this.props.books.map((book) => {
-                        return <BookCard book={book} />;
+                        return <BookCard key={book} book={book} />;
                     })}
                 </div>
-                { this.props.books.length ? <Pagination totalBooks={this.props.totalBooks} onPageChange={this.props.onPageChange} currentPage={this.props.currentPage} /> : null}
+                { this.props.books.length ? <Pagination
+                    totalBooks={this.props.totalBooks}
+                    onPageChange={this.props.onPageChange}
+                    currentPage={this.props.currentPage}
+                /> : null}
             </div>
         );
     }
