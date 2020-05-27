@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/books-nation/static/css/main.cd1207f9.chunk.css",
+    "main.css": "/books-nation/static/css/main.8c63e0a7.chunk.css",
     "main.js": "/books-nation/static/js/main.8bed7e34.chunk.js",
     "main.js.map": "/books-nation/static/js/main.8bed7e34.chunk.js.map",
     "runtime-main.js": "/books-nation/static/js/runtime-main.7dc384e1.js",
@@ -8,15 +8,15 @@
     "static/js/2.fbad6d1c.chunk.js": "/books-nation/static/js/2.fbad6d1c.chunk.js",
     "static/js/2.fbad6d1c.chunk.js.map": "/books-nation/static/js/2.fbad6d1c.chunk.js.map",
     "index.html": "/books-nation/index.html",
-    "precache-manifest.786bb5f0726e1ea20f7296bd210cea2b.js": "/books-nation/precache-manifest.786bb5f0726e1ea20f7296bd210cea2b.js",
+    "precache-manifest.49b6e7578ffd924a6dae7f8083932432.js": "/books-nation/precache-manifest.49b6e7578ffd924a6dae7f8083932432.js",
     "service-worker.js": "/books-nation/service-worker.js",
-    "static/css/main.cd1207f9.chunk.css.map": "/books-nation/static/css/main.cd1207f9.chunk.css.map",
+    "static/css/main.8c63e0a7.chunk.css.map": "/books-nation/static/css/main.8c63e0a7.chunk.css.map",
     "static/js/2.fbad6d1c.chunk.js.LICENSE.txt": "/books-nation/static/js/2.fbad6d1c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7dc384e1.js",
     "static/js/2.fbad6d1c.chunk.js",
-    "static/css/main.cd1207f9.chunk.css",
+    "static/css/main.8c63e0a7.chunk.css",
     "static/js/main.8bed7e34.chunk.js"
   ]
 }
