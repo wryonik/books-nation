@@ -9,12 +9,18 @@
     .pagination-prev, .pagination-next {
         color: red;
         margin-right: 2.5rem;
+        &:hover {
+            cursor: pointer;
+        }
     }
     .pagination-list {
         display: flex;
         flex-direction: row;
         .pagination-element {
             margin-right: 1.5625rem;
+            &:hover {
+                cursor: pointer;
+            }
             &.active {
                 font-weight: bold;
             }
