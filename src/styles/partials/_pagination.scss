@@ -1,0 +1,21 @@
+.pagination {
+    width: 20rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    .pagination-prev, .pagination-next {
+        color: red;
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    }
+    .pagination-list {
+        display: flex;
+        flex-direction: row;
+        .pagination-element {
+            margin-right: 25px;
+            &.active {
+                font-weight: bold;
+            }
+        }
+    }
+}

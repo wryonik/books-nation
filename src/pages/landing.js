@@ -9,11 +9,13 @@ class LandingPage extends Component {
         super(props);
         this.state = {
             books: [],
+            totalBooks: 0,
             searchField: '',
             sort: 'relevance',
             isLoading: false,
             filter: null,
-            languageRestriction: ''
+            languageRestriction: '',
+            startIndex: 0
         }
     }
 
@@ -43,11 +45,16 @@ class LandingPage extends Component {
         this.setState({ languageRestriction: e.target.value });
         this.handleRequest()
     }
+
+    handlePage = (currentPage) => {
+        this.setState({ startIndex: (currentPage-1)*10 })
+        this.handleRequest()
+    }
     
     handleRequest = () => {
         this.setState({ isLoading:true }, () => {
-            getBooks(this.state.searchField, this.state.sort, this.state.filter, this.state.languageRestriction).then((data) => {
-                this.setState({ isLoading:false, books: [...data.items] })
+            getBooks(this.state.searchField, this.state.sort, this.state.filter, this.state.languageRestriction, this.state.startIndex).then((data) => {
+                this.setState({ isLoading:false, books: [...data.items], totalBooks: data.totalItems })
             })
         })
     }
@@ -56,7 +63,7 @@ class LandingPage extends Component {
         return(
             <div className="landing">
                 <Searchbar searchBook={this.searchBook} handleSearch={this.handleSearch} handleSort={this.handleSort} sort={this.state.sort} handleFilter={this.handleFilter} handleLanguageRes={this.handleLanguageRes} />
-                {this.state.isLoading ? <LoadingSpinner /> : <BooksList books={this.state.books} />}
+                {this.state.isLoading ? <LoadingSpinner /> : <BooksList books={this.state.books} totalBooks={this.state.totalBooks} onPageChange={this.handlePage} />}
             </div>
         );
     }
