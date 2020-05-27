@@ -1,7 +1,6 @@
 .pagination {
-    width: 20rem;
     height: max-content;
-    margin-left: auto;
+    width: max-content;
     display: flex;
     flex-direction: row;
     font-size: 1.25rem;
@@ -27,6 +26,9 @@
                 color: white;
                 background: orangered;
                 border-radius: 3px;
+            }
+            &.isDisabled {
+                color: gray;
             }
         }
     }

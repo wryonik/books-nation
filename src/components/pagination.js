@@ -4,7 +4,7 @@ class Pagination extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pageNumbers: [1, this.totalPages],
+            pageNumbers: [1],
             booksPerPage: 10,
             totalPages: Math.ceil(props.totalBooks / 10),
             currentPage: this.props.currentPage
@@ -13,19 +13,25 @@ class Pagination extends Component {
         this.pageNumbers = [];
 
         if(this.state.currentPage<5) {
+            this.state.pageNumbers.splice(1, 0, this.state.totalPages);
+            this.state.pageNumbers.splice(1, 0, "...");
             for (let i = 5; i >= 2; i--) {
-                this.state.pageNumbers.splice(1,0,i);
+                this.state.pageNumbers.splice(1, 0, i);
             }
-        } else if( this.state.currentPage>(this.state.totalPages-5)) {
-            for (let i = this.state.totalPages-5; i >= this.state.totalPages-8; i--) {
-                this.state.pageNumbers.splice(1,0,i);
+        } else if( this.state.currentPage>(this.state.totalPages-4)) {
+            this.state.pageNumbers.splice(1, 0, this.state.totalPages);
+            for (let i = this.state.totalPages-1; i >= this.state.totalPages-4; i--) {
+                this.state.pageNumbers.splice(1, 0, i);
             }
+            this.state.pageNumbers.splice(1, 0, "...");
         } else {
+            this.state.pageNumbers.splice(1, 0, this.state.totalPages);
+            this.state.pageNumbers.splice(1, 0, "...");
             for (let i = this.state.currentPage+2; i >= this.state.currentPage-2; i--) {
-                this.state.pageNumbers.splice(1,0,i);
+                this.state.pageNumbers.splice( 1, 0, i);
             }
+            this.state.pageNumbers.splice(1, 0, "...");
         }
-
 
         this.handlePaginationNext = this.handlePaginationNext.bind(this);
         this.handlePaginationPrev = this.handlePaginationPrev.bind(this);
@@ -33,11 +39,15 @@ class Pagination extends Component {
     }
 
     handlePaginationNext () {
-        this.props.onPageChange(this.state.currentPage+1);
+        if(this.state.currentPage<this.state.totalPages) {
+            this.props.onPageChange(this.state.currentPage+1);
+        }
     }
 
     handlePaginationPrev () {
-        this.props.onPageChange(this.state.currentPage-1);
+        if(this.state.currentPage>1) {
+            this.props.onPageChange(this.state.currentPage-1);
+        }
     }
 
     handlePageChange (Number) {
@@ -48,7 +58,7 @@ class Pagination extends Component {
     render() {
         return(
             <div className="pagination">
-                <div className="pagination-prev" onClick={this.handlePaginationPrev}>Prev</div>
+                <div className={`pagination-prev ${this.state.currentPage <= 1 ? 'isDisabled': '' }`} onClick={this.handlePaginationPrev}>Prev</div>
                 <div className="pagination-list">
                     {this.state.pageNumbers.map(Number => (
                         <div
@@ -60,7 +70,7 @@ class Pagination extends Component {
                         </div>
                     ))}
                 </div>
-                <div className="pagination-next" onClick={this.handlePaginationNext}>Next</div>
+                <div className={`pagination-next ${this.state.currentPage === this.state.totalPages ? 'isDisabled': '' }`} onClick={this.handlePaginationNext}>Next</div>
             </div>
         );
     }
