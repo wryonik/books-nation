@@ -18,7 +18,7 @@ for fetching the results. Apart from this, it uses SASS preprocessor for writing
 1. Make sure `npm`, `git` is installed in your system.
 2. Clone this repo by `git clone git@github.com:shubhamgupta2956/books-nation.git`.
 3. Go into the repo dir by `cd ./books-nation` and run `npm install` to install all the dependencies.
-4. Last, but not least, type `npm start` or `yarn start` to run the app locally.
+4. Last, but not least, type `npm start` to run the app locally.
 
 ## Available Scripts
 
@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn build`
+### `npm build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
