@@ -10,7 +10,7 @@ class BooksList extends Component {
                 {this.props.books.map((book) => {
                     return <BookCard book={book} />;
                 })}
-                { this.props.books.length ? <Pagination totalBooks={this.props.totalBooks} onPageChange={this.props.onPageChange} /> : null}
+                { this.props.books.length ? <Pagination totalBooks={this.props.totalBooks} onPageChange={this.props.onPageChange} currentPage={this.props.currentPage} /> : null}
             </div>
         );
     }

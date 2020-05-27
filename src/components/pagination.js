@@ -4,38 +4,45 @@ class Pagination extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pageNumbers: [],
+            pageNumbers: [1, this.totalPages],
             booksPerPage: 10,
-            currentPage: 1,
-            totalPages: Math.ceil(props.totalBooks / 10)
+            totalPages: Math.ceil(props.totalBooks / 10),
+            currentPage: this.props.currentPage
         };
 
-        for (let i = 1; i <= this.state.totalPages; i++) {
-            this.state.pageNumbers.push(i);
+        this.pageNumbers = [];
+
+        if(this.state.currentPage<5) {
+            for (let i = 5; i >= 2; i--) {
+                this.state.pageNumbers.splice(1,0,i);
+            }
+        } else if( this.state.currentPage>(this.state.totalPages-5)) {
+            for (let i = this.state.totalPages-5; i >= this.state.totalPages-8; i--) {
+                this.state.pageNumbers.splice(1,0,i);
+            } 
+        } else {
+            for (let i = this.state.currentPage+2; i >= this.state.currentPage-2; i--) {
+                this.state.pageNumbers.splice(1,0,i);
+            }
         }
+
+
+        this.handlePaginationNext = this.handlePaginationNext.bind(this);
+        this.handlePaginationPrev = this.handlePaginationPrev.bind(this);
+        this.handlePageChange = this.handlePageChange.bind(this);
     }
 
-    handlePaginationNext = async () => {
-        if(this.state.currentPage<this.state.totalPages) {
-            await this.setState({ currentPage : this.state.currentPage+1 });
-        }
-        this.handlePageChangeUpdate();
+    handlePaginationNext () {
+        this.props.onPageChange(this.state.currentPage+1);
     }
 
-    handlePaginationPrev = () => {
-        if(this.state.currentPage>0) {
-            this.setState({ currentPage : this.state.currentPage-1 });
-        }
-        this.handlePageChangeUpdate();
+    handlePaginationPrev () {
+        this.props.onPageChange(this.state.currentPage-1);
     }
 
-    handlePageChange = async (Number) => {
-        await this.setState({ currentPage: Number });
-        this.handlePageChangeUpdate();
-    }
-
-    handlePageChangeUpdate = () => {
-        this.props.onPageChange(this.state.currentPage);
+    handlePageChange (Number) {
+        this.setState({ currentPage: Number });
+        this.props.onPageChange(Number);
     }
 
     render() {

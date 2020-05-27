@@ -15,8 +15,9 @@ class LandingPage extends Component {
             sort: 'relevance',
             isLoading: false,
             filter: null,
-            languageRestriction: '',
-            startIndex: 0
+            languageRestriction: null,
+            startIndex: 0,
+            currentPage: 0
         };
     }
 
@@ -54,7 +55,7 @@ class LandingPage extends Component {
     }
 
     handlePage = (currentPage) => {
-        this.setState({ startIndex: (currentPage-1)*10 });
+        this.setState({ startIndex: (currentPage-1)*10, currentPage: currentPage });
         this.handleRequest();
     }
 
@@ -99,6 +100,7 @@ class LandingPage extends Component {
                     books={this.state.books}
                     totalBooks={this.state.totalBooks}
                     onPageChange={this.handlePage}
+                    currentPage={this.state.currentPage}
                 /> }
             </div>
         );
