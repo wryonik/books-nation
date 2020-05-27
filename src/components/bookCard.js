@@ -3,11 +3,12 @@ import React from 'react';
 const BookCard = (props) => {
     const publishedYear = props.book.volumeInfo.hasOwnProperty('publishedDate') === false ? props.book.volumeInfo['publishedDate'] = "0000" : props.book.volumeInfo.publishedDate.substring(0,4);
     const averageRating = props.book.volumeInfo.hasOwnProperty('averageRating') === false ? props.book.volumeInfo['averageRating'] = "1" : props.book.volumeInfo.averageRating;
+    const thumbnail = props.book.volumeInfo.hasOwnProperty('imageLinks') === false ? props.book.volumeInfo.imageLinks['thumbnail'] = "1" : props.book.volumeInfo.imageLinks.thumbnail;
 
     return(
         <a href={props.book.accessInfo.webReaderLink}>
             <div className="bookCard">
-                <div className="bookCard-bookThumbnail"><img src={props.book.volumeInfo.imageLinks.thumbnail} alt={props.book.volumeInfo.title} /></div>
+                <div className="bookCard-bookThumbnail"><img src={thumbnail} alt={props.book.volumeInfo.title} /></div>
                 <div className="bookCard-bookInfo">
                     <div className="bookCard-bookInformation"><span className="label">Name: </span> {props.book.volumeInfo.title}</div>
                     <div className="bookCard-bookInformation"><span className="label">Authors: </span> {props.book.volumeInfo.authors}</div>
