@@ -5,9 +5,9 @@ function getBooks(name, orderValue, filter, languageRestriction, startIndex) {
         params: {
             q: name,
             orderBy: orderValue,
-            filter: filter,
+            filter,
             langRestrict: languageRestriction,
-            startIndex: startIndex
+            startIndex
         }
     })
     .then((response) => {
@@ -20,5 +20,5 @@ function getBooks(name, orderValue, filter, languageRestriction, startIndex) {
 }
 
 export {
-    getBooks,
-}
+    getBooks
+};

@@ -17,73 +17,89 @@ class LandingPage extends Component {
             filter: null,
             languageRestriction: '',
             startIndex: 0
-        }
+        };
     }
 
     handleSearch = (e) => {
-        this.setState({searchField: e.target.value});
+        this.setState({ searchField: e.target.value });
     }
 
     handleSort = (e) => {
         e.preventDefault();
         if(e.target.value!==undefined) {
-            this.setState({sort: e.target.value});
+            this.setState({ sort: e.target.value });
         }
-        this.handleRequest()
+        this.handleRequest();
     }
 
-    
+
     handleFilter = (e) => {
         if(e==null) {
-            this.setState({ filter: null })
+            this.setState({ filter: null });
         } else if(e.target.value!=="none") {
             this.setState({ filter: e.target.value });
         } else {
-            this.setState({ filter: null })
+            this.setState({ filter: null });
         }
-        this.handleRequest()
+        this.handleRequest();
     }
 
     handleLanguageRes = (e) => {
         if(e!==undefined) {
             this.setState({ languageRestriction: e.target.value });
         } else {
-            this.setState({ languageRestriction: null })
+            this.setState({ languageRestriction: null });
         }
-        this.handleRequest()
+        this.handleRequest();
     }
 
     handlePage = (currentPage) => {
-        this.setState({ startIndex: (currentPage-1)*10 })
-        this.handleRequest()
+        this.setState({ startIndex: (currentPage-1)*10 });
+        this.handleRequest();
     }
-    
+
     handleRequest = () => {
         if(this.state.searchField!=='') {
             this.setState({ isLoading:true }, () => {
                 getBooks(this.state.searchField, this.state.sort, this.state.filter, this.state.languageRestriction, this.state.startIndex)
                 .then((data) => {
-                    this.setState({ isLoading:false, books: [...data.items], totalBooks: data.totalItems })
+                    this.setState({ isLoading:false, books: [...data.items], totalBooks: data.totalItems });
                 })
                 .catch( err => {
-                    this.setState({ isLoading:false })
-                    alert(err)
+                    this.setState({ isLoading:false });
+                    alert(err);
                 });
-            })
+            });
         } else {
-            alert("Please input Search Query")
+            alert("Please input Search Query");
         }
     }
 
     render() {
         return(
             <div className="landing">
-                <Searchbar searchBook={this.searchBook} handleSearch={this.handleSearch} handleSort={this.handleSort} sort={this.state.sort} filter={this.state.filter} languageRestriction={this.state.languageRestriction} handleFilter={this.handleFilter} handleLanguageRes={this.handleLanguageRes} />
+                <Searchbar
+                    searchBook={this.searchBook}
+                    handleSearch={this.handleSearch}
+                    handleSort={this.handleSort}
+                    sort={this.state.sort}
+                    filter={this.state.filter}
+                    languageRestriction={this.state.languageRestriction}
+                    handleFilter={this.handleFilter}
+                    handleLanguageRes={this.handleLanguageRes}
+                />
                 <div className="chipComponents">
                     { this.state.filter ? <Chip filter={this.state.filter} handleFilter={this.handleFilter} /> : null }
-                    { this.state.languageRestriction ? <Chip filter={this.state.languageRestriction} handleLanguageRes={this.handleLanguageRes} /> : null }
+                    { this.state.languageRestriction ? <Chip
+                        filter={this.state.languageRestriction}
+                        handleLanguageRes={this.handleLanguageRes}
+                    /> : null }
                 </div>
-                {this.state.isLoading ? <LoadingSpinner /> : <BooksList books={this.state.books} totalBooks={this.state.totalBooks} onPageChange={this.handlePage} />}
+                {this.state.isLoading ? <LoadingSpinner /> : <BooksList
+                    books={this.state.books}
+                    totalBooks={this.state.totalBooks}
+                    onPageChange={this.handlePage}
+                /> }
             </div>
         );
     }

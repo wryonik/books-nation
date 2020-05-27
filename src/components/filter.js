@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Filter = (props) => {
-    console.log(props)
-
     return(
         <div className="filter">
             <select className="filterBy categoryDropdown" value={props.filter} onChange={props.handleFilter} >
@@ -20,10 +18,10 @@ const Filter = (props) => {
                 <option value="de">German</option>
                 <option value="hi">Hindi</option>
                 <option value="es">Spanish</option>
-                <option value="ru">Russian</option>                
+                <option value="ru">Russian</option>
             </select>
         </div>
     );
-}
+};
 
 export default Filter;
