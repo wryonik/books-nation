@@ -1,9 +1,15 @@
 .bookslist {
     margin-top: 2rem;
-    margin-bottom: 8rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr;
     column-gap: 2rem;
     grid-gap: 2rem;
+}
+
+.pagination {
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    text-align: center;
 }

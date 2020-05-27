@@ -19,8 +19,9 @@ const Searchbar = (props) => {
                         languageRestriction={props.languageRestriction}
                     />
                     <div className="sortBy" onClick={props.handleSort}>
-                        <button value="relevance" className={ `sortButton ${props.sort === "relevance" ? 'active': ''}` }>Relevance</button>
-                        <button value="newest" className={ `sortButton ${props.sort === "newest" ? 'active': ''}` }>Newest</button>
+                        <span className="label">Sort By:</span>
+                        <button value="relevance" className={ `sortButton left-button ${props.sort === "relevance" ? 'active': ''}` }>Relevance</button>
+                        <button value="newest" className={ `sortButton right-button ${props.sort === "newest" ? 'active': ''}` }>Newest</button>
                     </div>
                 </div>
             </form>

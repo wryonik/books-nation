@@ -6,10 +6,12 @@ import React, { Component } from 'react';
 class BooksList extends Component {
     render() {
         return(
-            <div className="bookslist">
-                {this.props.books.map((book) => {
-                    return <BookCard book={book} />;
-                })}
+            <div className="booklistPage">
+                <div className="bookslist">
+                    {this.props.books.map((book) => {
+                        return <BookCard book={book} />;
+                    })}
+                </div>
                 { this.props.books.length ? <Pagination totalBooks={this.props.totalBooks} onPageChange={this.props.onPageChange} currentPage={this.props.currentPage} /> : null}
             </div>
         );

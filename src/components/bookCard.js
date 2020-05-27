@@ -13,14 +13,14 @@ const BookCard = (props) => {
             <div className="bookCard">
                 <div className="bookCard-bookThumbnail"><img src={thumbnail} alt={props.book.volumeInfo.title} /></div>
                 <div className="bookCard-bookInfo">
-                    <div className="bookCard-bookInformation"><span className="label">Name: </span> {props.book.volumeInfo.title}</div>
-                    <div className="bookCard-bookInformation"><span className="label">Authors: </span> {props.book.volumeInfo.authors}</div>
-                    <div className="bookCard-bookInformation"><span className="label">Publisher: </span> {props.book.volumeInfo.publisher}</div>
-                    <div className="bookCard-bookInformation"><span className="label">Published Year: </span> {publishedYear}</div>
+                    <div className="bookCard-bookInformation"><span className="cardLabel">Name: </span> {props.book.volumeInfo.title}</div>
+                    <div className="bookCard-bookInformation"><span className="cardLabel">Authors: </span> {props.book.volumeInfo.authors}</div>
+                    <div className="bookCard-bookInformation"><span className="cardLabel">Publisher: </span> {props.book.volumeInfo.publisher}</div>
+                    <div className="bookCard-bookInformation"><span className="cardLabel">Published Year: </span> {publishedYear}</div>
                     <div className="bookCard-bookInformation">
-                        <span className="label">Language: </span> {props.book.volumeInfo.language.toUpperCase()}
+                        <span className="cardLabel">Language: </span> {props.book.volumeInfo.language.toUpperCase()}
                     </div>
-                    <div className="bookCard-bookInformation"><span className="label">Rating: </span> {averageRating}/5</div>
+                    <div className="bookCard-bookInformation"><span className="cardLabel">Rating: </span> {averageRating}/5</div>
                 </div>
             </div>
         </a>

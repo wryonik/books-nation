@@ -4,7 +4,7 @@
     margin-left: auto;
     display: flex;
     flex-direction: row;
-    font-size: 20px;
+    font-size: 1.25rem;
     text-align: center;
     .pagination-prev, .pagination-next {
         color: red;
@@ -14,7 +14,7 @@
         display: flex;
         flex-direction: row;
         .pagination-element {
-            margin-right: 25px;
+            margin-right: 1.5625rem;
             &.active {
                 font-weight: bold;
             }

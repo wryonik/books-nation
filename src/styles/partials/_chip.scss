@@ -1,17 +1,17 @@
 .chip {
-    height: 24px;
+    height: 1.5rem;
     width: max-content;
-    padding: 2px 8px;
+    padding: 0.125rem 0.5rem;
     display: flex;
     flex-direction: row;
     vertical-align: super;
-    margin-top: 25px;
-    border-radius: 12px;
-    box-shadow: 0px 6px 10px rgba(25, 25, 25, 0.1);
-    margin-right: 5px;
+    margin-top: 1.5625rem;
+    border-radius: 0.75rem;
+    box-shadow: 0rem 0.375rem 0.625rem rgba(25, 25, 25, 0.1);
+    margin-right: 0.3125rem;
     .filterName {
         align-self: center;
-        margin-right: 10px;
+        margin-right: 0.625rem;
     }
     .fas {
         align-self: center;

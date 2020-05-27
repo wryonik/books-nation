@@ -3,6 +3,7 @@ import React from 'react';
 const Filter = (props) => {
     return(
         <div className="filter">
+            <span className="label">Filter By:</span>
             <select className="filterBy categoryDropdown" value={props.filter} onChange={props.handleFilter} >
                 <option value={null}>None</option>
                 <option value="full">Full</option>
