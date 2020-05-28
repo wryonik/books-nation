@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getBookById } from '../api/booksApi';
+import { getBookById, getBooks } from '../api/booksApi';
+import SuggestedBookCard from '../components/suggestionBookCard';
 
 class BookInfo extends Component {
     constructor(props) {
@@ -16,10 +17,11 @@ class BookInfo extends Component {
                 thumbnail: '',
                 pagecount: '',
                 saleInfo: '',
-                category: '',
+                category: [],
                 link: '',
                 ebook: ''
-            }
+            },
+            suggestions: []
         };
     }
 
@@ -43,7 +45,14 @@ class BookInfo extends Component {
                         ebook: data.saleInfo.saleability.isEbook
                     }
                 });
-
+                this.query = `${data.volumeInfo.title}+subject=${data.volumeInfo.categories}`;
+                getBooks(this.query)
+                .then((data) => {
+                    this.setState({ suggestions: [...data.items] });
+                })
+                .catch( err => {
+                    alert("Error while getting suggestions");
+                });
             })
             .catch( err => {
                 this.setState({ isLoading:false });
@@ -92,7 +101,11 @@ class BookInfo extends Component {
                 </div>
                 <span className="descLabel">About the Book</span>
                 <div className="description">{this.state.Book.description}</div>
-
+                <div className="suggestions">
+                    {this.state.suggestions.map((book) => {
+                        return <SuggestedBookCard key={book} book={book} />;
+                    })}
+                </div>
             </div>
         );
     }

@@ -34,7 +34,7 @@
     }
 
     .descLabel {
-        font-size: 20px;
+        font-size: 1.25rem;
         font-weight: 500;
         color: black;
     }
@@ -42,5 +42,11 @@
         margin-top: 1rem;
         text-align: justify;
         text-justify: inter-word;
+    }
+    .suggestions {
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 }

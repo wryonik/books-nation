@@ -16,6 +16,8 @@ a:link {
         width: 8rem;
         margin-left: 1.75rem;
         border: 0.0625rem solid black;
+        overflow: hidden;
+        object-fit: fill;
     }
     .bookCard-bookInfo {
         margin-top: calc((15rem - 11.75rem)/2);
