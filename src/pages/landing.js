@@ -12,6 +12,9 @@ class LandingPage extends Component {
             books: [],
             totalBooks: 0,
             searchField: '',
+            bookTitle: '',
+            authorName: '',
+            publisherName: '',
             sort: 'relevance',
             isLoading: false,
             filter: null,
@@ -23,6 +26,18 @@ class LandingPage extends Component {
 
     handleSearch = (e) => {
         this.setState({ searchField: e.target.value });
+    }
+
+    handleBookTitle = (e) => {
+        this.setState({ bookTitle: `+intitle:${ e.target.value }` });
+    }
+
+    handleAuthorName = (e) => {
+        this.setState({ authorName: `+inauthor:${ e.target.value }` });
+    }
+
+    handlePublisherName = (e) => {
+        this.setState({ publisherName: `+inpublisher:${ e.target.value }` });
     }
 
     handleSort = (e) => {
@@ -60,9 +75,10 @@ class LandingPage extends Component {
     }
 
     handleRequest = () => {
+        this.q = this.state.searchField + this.state.bookTitle + this.state.authorName + this.state.publisherName;
         if(this.state.searchField!=='') {
             this.setState({ isLoading:true }, () => {
-                getBooks(this.state.searchField,
+                getBooks(this.q,
                     this.state.sort,
                     this.state.filter,
                     this.state.languageRestriction,
@@ -72,7 +88,7 @@ class LandingPage extends Component {
                     this.setState({ isLoading:false, books: [...data.items], totalBooks: data.totalItems });
                 })
                 .catch( err => {
-                    this.setState({ isLoading:false });
+                    this.setState({ isLoading:false, currentPage: 1 });
                     alert(err);
                 });
             });
@@ -87,6 +103,9 @@ class LandingPage extends Component {
                 <Searchbar
                     searchBook={this.searchBook}
                     handleSearch={this.handleSearch}
+                    handleBookTitle={this.handleBookTitle}
+                    handleAuthorName={this.handleAuthorName}
+                    handlePublisherName={this.handlePublisherName}
                     handleSort={this.handleSort}
                     sort={this.state.sort}
                     filter={this.state.filter}

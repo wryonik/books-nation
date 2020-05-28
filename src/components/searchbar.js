@@ -9,12 +9,42 @@ const Searchbar = (props) => {
     return(
         <div className="searchbar">
             <form onSubmit={props.handleSort} action="">
-                <input
-                    type="text"
-                    className="searchfield"
-                    placeholder="Enter book name"
-                    onChange={props.handleSearch}
-                />
+                <div className="field">
+                    <label className="label">Search By: </label>
+                    <input
+                        type="text"
+                        className="searchfield"
+                        placeholder="Search by"
+                        onChange={props.handleSearch}
+                    />
+                </div>
+                <div className="field">
+                    <label className="label">Book Title: </label>
+                    <input
+                        type="text"
+                        className="searchfield"
+                        placeholder="Enter book title"
+                        onChange={props.handleBookTitle}
+                    />
+                </div>
+                <div className="field">
+                    <label className="label">Author Name: </label>
+                    <input
+                        type="text"
+                        className="searchfield"
+                        placeholder="Enter Author name"
+                        onChange={props.handleAuthorName}
+                    />
+                </div>
+                <div className="field">
+                    <label className="label">Publisher Name: </label>
+                    <input
+                        type="text"
+                        className="searchfield"
+                        placeholder="Enter Publisher name"
+                        onChange={props.handlePublisherName}
+                    />
+                </div>
                 <button type="submit" className="button">Search</button>
                 <div className="properties">
                     <Filter
