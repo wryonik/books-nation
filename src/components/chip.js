@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Header extends Component {
+class Chip extends Component {
     handleRemove = () => {
         if(this.props.handleFilter) {
             this.props.handleFilter();
@@ -19,4 +19,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default Chip;

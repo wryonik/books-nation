@@ -55,7 +55,7 @@ class LandingPage extends Component {
     }
 
     handlePage = (currentPage) => {
-        this.setState({ startIndex: (currentPage-1)*10, currentPage: currentPage });
+        this.setState({ startIndex: (currentPage-1)*10, currentPage });
         this.handleRequest();
     }
 

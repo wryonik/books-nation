@@ -58,7 +58,11 @@ class Pagination extends Component {
     render() {
         return(
             <div className="pagination">
-                <div className={`pagination-prev ${this.state.currentPage <= 1 ? 'isDisabled': '' }`} onClick={this.handlePaginationPrev}>Prev</div>
+                <div
+                    className={`pagination-prev ${this.state.currentPage <= 1 ? 'isDisabled': '' }`}
+                    onClick={this.handlePaginationPrev}>
+                         Prev
+                </div>
                 <div className="pagination-list">
                     {this.state.pageNumbers.map(Number => (
                         <div
@@ -70,7 +74,11 @@ class Pagination extends Component {
                         </div>
                     ))}
                 </div>
-                <div className={`pagination-next ${this.state.currentPage === this.state.totalPages ? 'isDisabled': '' }`} onClick={this.handlePaginationNext}>Next</div>
+                <div
+                    className={`pagination-next ${this.state.currentPage === this.state.totalPages ? 'isDisabled': ''}`}
+                    onClick={this.handlePaginationNext}>
+                        Next
+                </div>
             </div>
         );
     }
