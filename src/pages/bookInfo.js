@@ -99,12 +99,15 @@ class BookInfo extends Component {
                         </div>
                     </div>
                 </div>
-                <span className="descLabel">About the Book</span>
+                <label className="descLabel">About the Book</label>
                 <div className="description">{this.state.Book.description}</div>
                 <div className="suggestions">
-                    {this.state.suggestions.map((book) => {
-                        return <SuggestedBookCard key={book} book={book} />;
-                    })}
+                    <label className="descLabel">Suggested Books</label>
+                    <div className="suggestedBooks">
+                        {this.state.suggestions.map((book) => {
+                            return <SuggestedBookCard key={book} book={book} />;
+                        })}
+                    </div>
                 </div>
             </div>
         );
