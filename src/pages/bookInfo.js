@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getBookById, getBooks } from '../api/booksApi';
 import SuggestedBookCard from '../components/suggestionBookCard';
+import LoadingSpinner from '../components/loadingSpinner';
 
 class BookInfo extends Component {
     constructor(props) {
@@ -26,8 +27,18 @@ class BookInfo extends Component {
     }
 
     componentDidMount() {
+        this.handleGetData();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            this.handleGetData();
+        }
+    }
+
+    handleGetData = () => {
         this.setState({ isLoading: true }, () => {
-            getBookById(this.state.BookId)
+            getBookById(this.props.match.params.id)
             .then((data) => {
                 this.setState({
                     isLoading:false,
@@ -64,51 +75,53 @@ class BookInfo extends Component {
     render() {
         return(
             <div className="bookInfo">
-                <div className="title">{this.state.Book.title}</div>
-                <div className="bookProperties">
-                    <div className="image">
-                        <div className="thumbnail">
-                            <img src={this.state.Book.thumbnail} alt={this.state.Book.title} />
+                {this.state.isLoading ? <LoadingSpinner /> : <div>
+                    <div className="title">{this.state.Book.title}</div>
+                    <div className="bookProperties">
+                        <div className="image">
+                            <div className="thumbnail">
+                                <img src={this.state.Book.thumbnail} alt={this.state.Book.title} />
+                            </div>
+                            <a className="button" href={this.state.Book.link}>Go to Book</a>
                         </div>
-                        <a className="button" href={this.state.Book.link}>Go to Book</a>
+                        <div className="smallInfo">
+                            <div className="author">
+                                <span className="label">Authors:</span>
+                                {this.state.Book.authors}
+                            </div>
+                            <div className="publisher">
+                                <span className="label">Publisher:</span>
+                                {this.state.Book.publisher}
+                            </div>
+                            <div className="published date">
+                                <span className="label">Published Date:</span>
+                                {this.state.Book.publishedDate}
+                            </div>
+                            <div className="saleinfo">
+                                <span className="label">Sale Info:</span>
+                                {this.state.Book.saleInfo}
+                            </div>
+                            <div className="ebook">
+                                <span className="label">E-book:</span>
+                                {!this.state.Book.ebook ? 'Not available': 'Available' }
+                            </div>
+                            <div className="pagecount">
+                                <span className="label">Page Count:</span>
+                                {this.state.Book.pagecount}
+                            </div>
+                        </div>
                     </div>
-                    <div className="smallInfo">
-                        <div className="author">
-                            <span className="label">Authors:</span>
-                            {this.state.Book.authors}
-                        </div>
-                        <div className="publisher">
-                            <span className="label">Publisher:</span>
-                            {this.state.Book.publisher}
-                        </div>
-                        <div className="published date">
-                            <span className="label">Published Date:</span>
-                            {this.state.Book.publishedDate}
-                        </div>
-                        <div className="saleinfo">
-                            <span className="label">Sale Info:</span>
-                            {this.state.Book.saleInfo}
-                        </div>
-                        <div className="ebook">
-                            <span className="label">E-book:</span>
-                            {!this.state.Book.ebook ? 'Not available': 'Available' }
-                        </div>
-                        <div className="pagecount">
-                            <span className="label">Page Count:</span>
-                            {this.state.Book.pagecount}
+                    <label className="descLabel">About the Book</label>
+                    <div className="description">{this.state.Book.description}</div>
+                    <div className="suggestions">
+                        <label className="descLabel">Suggested Books</label>
+                        <div className="suggestedBooks">
+                            {this.state.suggestions.map((bookID) => {
+                                return <SuggestedBookCard key={bookID} book={bookID} />;
+                            })}
                         </div>
                     </div>
-                </div>
-                <label className="descLabel">About the Book</label>
-                <div className="description">{this.state.Book.description}</div>
-                <div className="suggestions">
-                    <label className="descLabel">Suggested Books</label>
-                    <div className="suggestedBooks">
-                        {this.state.suggestions.map((book) => {
-                            return <SuggestedBookCard key={book} book={book} />;
-                        })}
-                    </div>
-                </div>
+                </div>}
             </div>
         );
     }
