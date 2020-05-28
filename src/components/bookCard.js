@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const BookCard = (props) => {
     const publishedYear = !props.book.volumeInfo.hasOwnProperty('publishedDate')
@@ -10,7 +11,7 @@ const BookCard = (props) => {
                       ? 1 : props.book.volumeInfo.imageLinks.thumbnail;
 
     return(
-        <a href={props.book.accessInfo.webReaderLink}>
+        <Link to={`/${props.book.id}`}>
             <div className="bookCard">
                 <div className="bookCard-bookThumbnail"><img src={thumbnail} alt={props.book.volumeInfo.title} /></div>
                 <div className="bookCard-bookInfo">
@@ -40,7 +41,7 @@ const BookCard = (props) => {
                     </div>
                 </div>
             </div>
-        </a>
+        </Link>
     );
 };
 

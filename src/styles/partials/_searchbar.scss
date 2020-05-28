@@ -16,21 +16,6 @@
             margin-right: auto;
         }
     }
-        .button {
-            padding: 0.375rem 2rem;
-            height: calc(1rem + 2* 0.625rem);
-            border: none;
-            margin-left: 1rem;
-            color: white;
-            background: orangered;
-            box-shadow: 0rem 0.375rem 0.625rem rgba(255, 103, 0, 0.3);
-            border-radius: 0.1875rem;
-            margin-top: 1rem;
-        }
-    .label {
-        font-weight: 600;
-        margin-right: 0.625rem;
-    }
     .properties {
         display: flex;
         flex-direction: row;
@@ -62,4 +47,21 @@
             }
         }
     }
+}
+
+.label {
+    font-weight: 600;
+    margin-right: 0.625rem;
+}
+
+.button {
+    padding: 0.375rem 2rem;
+    height: calc(1rem + 2* 0.625rem);
+    border: none;
+    margin-left: 1rem;
+    color: white;
+    background: orangered;
+    box-shadow: 0rem 0.375rem 0.625rem rgba(255, 103, 0, 0.3);
+    border-radius: 0.1875rem;
+    margin-top: 1rem;
 }

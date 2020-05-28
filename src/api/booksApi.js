@@ -19,6 +19,18 @@ function getBooks(name, orderValue, filter, languageRestriction, startIndex) {
     });
 }
 
+function getBookById(bookId) {
+    return axiosInstance.get(`/${bookId}`)
+    .then((response) => {
+        const res = JSON.parse(response.request.response);
+        return res;
+    })
+    .catch((error) => {
+        return Promise.reject(error);
+    });
+}
+
 export {
-    getBooks
+    getBooks,
+    getBookById
 };
