@@ -1,8 +1,8 @@
-# BookNation
+# Books Nation
 
 > A Book finding react based web app.
 
-A working example is hosted at: [BookNation](https://shubhamgupta2956.github.io/books-nation/)
+A working example is hosted at: [Books Nation](https://shubhamgupta2956.github.io/books-nation/)
 
 A book finder web app to help peoples find the content of their taste during this quarantine period. This web-app uses
 ReactJS framework for frontend and [Google Books API](https://developers.google.com/books/docs/v1/getting_started) 
