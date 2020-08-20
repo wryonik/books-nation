@@ -9,7 +9,7 @@ ReactJS framework for frontend and [Google Books API](https://developers.google.
 for fetching the results. Apart from this, it uses SASS preprocessor for writing efficient CSS.
 
 
-![alt text](./Screenshots/pic1.png)
+![alt text](./Screenshots/app.gif)
 
 
 ## Contents
