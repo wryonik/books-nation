@@ -50,7 +50,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Usage
 
 The webapp is ready to use once after you had completed all the installation and setup instructions. It has a basic interface
-with searchbar and a few options for filter and sorting the result.
+with a searchbar and options for filter and sorting the result.
 
 ---
 Made with **khoon**, **paseena** and **love** `:-)` by
