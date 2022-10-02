@@ -55,4 +55,4 @@ with a searchbar and options for filter and sorting the result.
 ---
 Made with **khoon**, **paseena** and **love** `:-)` by
 
-Shubham ([shubhamgupta2956](https://github.com/shubhamgupta2956))
+Shubham ([wryonik](https://github.com/wryonik))
