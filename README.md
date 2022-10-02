@@ -15,13 +15,13 @@ for fetching the results. Apart from this, it uses SASS preprocessor for writing
 ## Contents
 
 1. [Installation](#installation)
-1. [Available Scripts](#available-scripts)
-1. [Usage](#usage)
+2. [Available Scripts](#available-scripts)
+3. [Usage](#usage)
 
 ## Installation
 
 1. Make sure `npm`, `git` is installed in your system.
-2. Clone this repo by `git clone git@github.com:shubhamgupta2956/books-nation.git`.
+2. Clone this repo by `git clone git@github.com:shubhamgupta2956/books-nation.git` in terminal.
 3. Go into the repo dir by `cd ./books-nation` and run `npm install` to install all the dependencies.
 4. Last, but not least, type `npm start` to run the app locally.
 
