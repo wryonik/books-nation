@@ -8,7 +8,6 @@ A book finder web app to help peoples find the content of their taste during thi
 ReactJS framework for frontend and [Google Books API](https://developers.google.com/books/docs/v1/getting_started) 
 for fetching the results. Apart from this, it uses SASS preprocessor for writing efficient CSS.
 
-
 ![alt text](./Screenshots/app.gif)
 
 
@@ -55,4 +54,4 @@ with a searchbar and options for filter and sorting the result.
 ---
 Made with **khoon**, **paseena** and **love** `:-)` by
 
-Shubham ([wryonik](https://github.com/wryonik))
+Shubham Gupta([wryonik](https://github.com/wryonik))
